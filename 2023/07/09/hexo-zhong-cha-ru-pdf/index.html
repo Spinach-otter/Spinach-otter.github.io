@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数学建模校赛复盘, Spinach">
+    <meta name="keywords" content="Hexo中插入PDF, Spinach">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数学建模校赛复盘 | Spinach</title>
+    <title>Hexo中插入PDF | Spinach</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,7 +315,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数学建模校赛复盘</h1>
+                    <h1 class="description center-align post-title">Hexo中插入PDF</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
-                                <span class="chip bg-color">数学建模</span>
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="post-category">
-                                数学建模
+                            <a href="/categories/Hexo/" class="post-category">
+                                Hexo
                             </a>
                         
                     </div>
@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    114
                 </div>
                 
 
@@ -490,39 +490,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数学建模校赛复盘"><a href="#数学建模校赛复盘" class="headerlink" title="数学建模校赛复盘"></a>数学建模校赛复盘</h1><h3 id="选题后自信满满"><a href="#选题后自信满满" class="headerlink" title="选题后自信满满"></a>选题后自信满满</h3><p>第一天拿到AB两题，A题是物理题直接跳过，B题是血糖预测题，背景熟悉且一眼回归问题，二话不说直接上手了。题目长这样：</p>
+                <h1 id="Hexo中插入PDF"><a href="#Hexo中插入PDF" class="headerlink" title="Hexo中插入PDF"></a>Hexo中插入PDF</h1><h3 id="安装hexo-pdf"><a href="#安装hexo-pdf" class="headerlink" title="安装hexo-pdf"></a>安装hexo-pdf</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install --save hexo-pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
-	<div class="row">
-    <embed src="2023年度东华大学数学建模竞赛B题.pdf" width="100%" height="550" type="application/pdf">
-	</div>
+<h3 id="修改-config-yml文件"><a href="#修改-config-yml文件" class="headerlink" title="修改_config.yml文件"></a>修改_config.yml文件</h3><p><code>post_asset_folder: true</code></p>
+<p>说明：设置为true之后，在<code>hexo new 文件名</code>时，会在_post文件下同时生成 “文件名.md” 和 “文件名”的文件夹</p>
+<h3 id="生成文件test"><a href="#生成文件test" class="headerlink" title="生成文件test"></a>生成文件test</h3><p>在test文件夹下放需要展示的pdf文件，例如test&#x2F;tmp&#x2F;1.pdf</p>
+<p>在test.md相应的位置放入下列代码：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&#123;% pdf tmp/1.pdf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-
-<p>思路直出：数据清洗——统计数据——划分数据——丢特征&amp;&amp;PCA筛选几个主成分——训练模型——选择模型进行预测。</p>
-<h3 id="走上弯路"><a href="#走上弯路" class="headerlink" title="走上弯路"></a>走上弯路</h3><p>当时没有仔细看问题2和3，是需要在选择某些确定的特征后再进行模型训练和预测。而不能用压缩了的主成分，但是我们没有放弃PCA筛选主成分这一步，我们利用PCA得出的特征对主成分的贡献系数筛选了一些特征，相当于用PCA的二手信息再筛选，<strong>所以为什么不直接用一手信息，我请问呢？</strong>总而言之就是用了多手信息筛选特征后训练模型发现效果很差。</p>
-<h3 id="推倒重来"><a href="#推倒重来" class="headerlink" title="推倒重来"></a>推倒重来</h3><p>经过和队友的讨论，选择数据用一手数据，用Pearson相关系数找相关性大的特征即可，根据经验用相关系数先筛选一些特征进行训练，如不理想则重新选择特征数量。</p>
-<p>这里有个争吵点：若不是线性模型，用线性相关选出的特征不一定对非线性模型有跟好的效果，所以在不确定一定使用线性模型时，用线性相关筛选特征是否不合适？这个问题提出后，所有进度直接停摆，通过询问建议等等，得出结论为：<strong>在机器学习时应当从最简单的想法出发，就是直接用线性相关筛选即可，即使不合适也是实验效果差的后话了。</strong></p>
-<p>于是最终使用Pearson选特征，然后训练模型。</p>
-<h3 id="模型结果离谱"><a href="#模型结果离谱" class="headerlink" title="模型结果离谱"></a>模型结果离谱</h3><p>各种回归模型预测结果都十分离谱，$R^2$只有0.1几，也就是拟合程度只有10%，很不合理。</p>
-<p>所以回去找问题，一路逆推，模型挑选和代码没问题。</p>
-<p>那么可能是特征选择不好，我们直接从全部特征仍进行，到逐渐减少特征，特征不论怎么选结果都很差。</p>
-<p>最后询问建议，结果是赛放数据给的不好，以及测试数据很小，很可能存在极端的状况，所以初步确定锅在主办方。我队摆停，因为不知道之后应当去摆烂交垃圾模型，还是继续优化看能否提升一些性能，已经过去比赛时间的一半了论文没动过，策略有点问题的。</p>
-<h3 id="峰回路转"><a href="#峰回路转" class="headerlink" title="峰回路转"></a>峰回路转</h3><p>休息一个晚上，早上队长扔了很多天池notebook，本意是想让我们画一些正态分布、训练数据与测试数据的趋势图进行特征筛选。然后发现又个小方法，就是模型融合。反正想不到方法了，试试就试试，结果训练结果超级好$R^2$高达95%，泛化能力也不错。所以一切豁然开朗，直接开始写论文，进度起飞，直接搞完。</p>
-<h3 id="收获总结"><a href="#收获总结" class="headerlink" title="收获总结"></a>收获总结</h3><ul>
-<li>了解数学建模或者机器学习整体流程都是大道至简的，先用简单方法实践，效果不好再回头</li>
-<li>数据清洗，清洗时包括数据类型、数据空值、异常值、max-min、数据正态观察，还有相应的可视化</li>
-<li>数据划分，对训练集验证集测试集以及K折交叉验证更熟悉</li>
-<li>特征选择，数据统计后直接丢弃、相关系数选最重要的、训练与测试数据的趋势丢掉一些、能使用PCA可尝试</li>
-<li>模型训练，这个反而是最简单的，只要调用库即可，但是对于调参和正则化依然不太知道操作；集成学习第一次尝试</li>
-</ul>
-<h3 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h3>
-
-	<div class="row">
-    <embed src="DHU23128/糖尿病风险预测.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
+<p>使用外部PDF一样</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&#123;% pdf https://XXX.pdf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -551,7 +529,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://Spinach-otter.github.io/2023/07/09/shu-xue-jian-mo-xiao-sai-fu-pan/">https://Spinach-otter.github.io/2023/07/09/shu-xue-jian-mo-xiao-sai-fu-pan/</a>
+                    <a href="https://Spinach-otter.github.io/2023/07/09/hexo-zhong-cha-ru-pdf/">https://Spinach-otter.github.io/2023/07/09/hexo-zhong-cha-ru-pdf/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,8 +567,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
-                                    <span class="chip bg-color">数学建模</span>
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -634,9 +612,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/07/09/hexo-zhong-cha-ru-pdf/">
                     <div class="card-image">
@@ -654,9 +633,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -669,6 +648,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -687,31 +667,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/07/06/hexo-github-fa-bu-ge-ren-bo-ke/">
+                <a href="/2023/07/09/shu-xue-jian-mo-xiao-sai-fu-pan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Hexo+Github发布个人博客">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="数学建模校赛复盘">
                         
-                        <span class="card-title">Hexo+Github发布个人博客</span>
+                        <span class="card-title">数学建模校赛复盘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用Hexo+Github Pages发布静态个人博客
+                            被队友带飞的菠菜,忏悔一下,之后要好好学捏
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="post-category">
+                                    数学建模
                                 </a>
                             
                             
@@ -721,16 +701,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/Github/">
-                        <span class="chip bg-color">Github</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                        <span class="chip bg-color">数学建模</span>
                     </a>
                     
                 </div>
