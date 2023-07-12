@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>IDEA安装依赖后依然报错</title>
+      <link href="/2023/07/12/idea-an-zhuang-yi-lai-hou-yi-ran-bao-cuo/"/>
+      <url>/2023/07/12/idea-an-zhuang-yi-lai-hou-yi-ran-bao-cuo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="IDEA安装依赖后依然报错"><a href="#IDEA安装依赖后依然报错" class="headerlink" title="IDEA安装依赖后依然报错"></a>IDEA安装依赖后依然报错</h1><p>确定安装成功依赖之后，若某些语句依然标红报错，很有可能是IDEA自己的问题，只需要清空IDEA的缓存然后重启即可。重启大法才是最牛的。</p><p>具体操作：<code>file-&gt;invalidate caches-&gt;确定清空缓存重启</code></p><p><img src="https://s3.bmp.ovh/imgs/2023/07/12/e5e83fd0a4c1272d.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDEA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+            <tag> BUG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IDEA之JAVA配置报错</title>
+      <link href="/2023/07/12/idea-zhi-java-pei-zhi-bao-cuo/"/>
+      <url>/2023/07/12/idea-zhi-java-pei-zhi-bao-cuo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="IDEA之JAVA配置报错"><a href="#IDEA之JAVA配置报错" class="headerlink" title="IDEA之JAVA配置报错"></a>IDEA之JAVA配置报错</h1><p>使用JAVA创建工程时，时常会出现以下问题。数字不一定是17，可能是5，6，7，8等等等等</p><p><img src="https://s3.bmp.ovh/imgs/2023/07/12/ef4d8e22a2fd77c4.png"></p><p>问题的根源其实是，工程中选定的JAVA编译版本不一致，只需要以下几步，把所有版本设置为自己有的JDK即可</p><ol><li><p>快捷键<code>command+,</code>，preference-&gt;build-&gt;compiler-&gt;java，出现数字版本的地方全部改成一样</p><p><img src="https://s3.bmp.ovh/imgs/2023/07/12/0c353918a46556bb.png"></p></li><li><p>快捷键<code>command+;</code>，project structure-&gt;project，SDK改成一样的版本</p><p><img src="https://s3.bmp.ovh/imgs/2023/07/12/60b8f65d60b83ae6.png"></p></li><li><p>上面的侧栏<code>Modules</code>，一样的source和dependence的都要改成一样的版本</p><p><img src="https://s3.bmp.ovh/imgs/2023/07/12/e86cba63859c377d.png"></p><p><img src="https://s3.bmp.ovh/imgs/2023/07/12/25a3fa3651b132c9.png"></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDEA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+            <tag> BUG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo中插入PDF</title>
       <link href="/2023/07/09/hexo-zhong-cha-ru-pdf/"/>
       <url>/2023/07/09/hexo-zhong-cha-ru-pdf/</url>
