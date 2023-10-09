@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>YOLO模型使用说明</title>
+      <link href="/2023/10/09/yolo-mo-xing-shi-yong-shuo-ming/"/>
+      <url>/2023/10/09/yolo-mo-xing-shi-yong-shuo-ming/</url>
+      
+        <content type="html"><![CDATA[<h1 id="YOLO模型使用说明"><a href="#YOLO模型使用说明" class="headerlink" title="YOLO模型使用说明"></a>YOLO模型使用说明</h1><h2 id="Anaconda配置适应环境"><a href="#Anaconda配置适应环境" class="headerlink" title="Anaconda配置适应环境"></a>Anaconda配置适应环境</h2><ul><li>使用图形化界面创建新的py38(适用yolov5)虚拟运行环境</li><li><a href="https://github.com/ultralytics/yolov5/tree/v5.0">从GitHub上下载YOLO模型</a>，并在上述环境中打开YOLO模型项目</li></ul><h2 id="官方YOLO模型（以YOLOV5为例）"><a href="#官方YOLO模型（以YOLOV5为例）" class="headerlink" title="官方YOLO模型（以YOLOV5为例）"></a>官方YOLO模型（以YOLOV5为例）</h2><ul><li><p>在pycharm中打开yolo模型，并利用IDEA自动安装require文件中的依赖，自动安装失败的手动在终端安装</p></li><li><p><a href="https://www.bilibili.com/video/BV1nq4y157Aw/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=0fdb73bbf2537dde6273cee128865f85">模型结构及参数解释</a></p></li><li><p>运行detected.py，测试默认情况下能否运行成功，同时逐步添加合适的依赖版本</p></li></ul><h2 id="LabelImg工具打标签"><a href="#LabelImg工具打标签" class="headerlink" title="LabelImg工具打标签"></a>LabelImg工具打标签</h2><ul><li><p><a href="https://github.com/HumanSignal/labelImg">从GitHub上下载工具</a></p></li><li><p>解压文件后，cd进入文件中，并安装支持该工具的相关依赖</p><pre class="line-numbers language-none"><code class="language-none">brew install qtbrew install libxml2conda install pyqt &#x2F;&#x2F;必要安装conda install lxml &#x2F;&#x2F;必要安装make qt5py3&#x2F;&#x2F;上面两个必要安装没办法用pip下载下来，于是绕弯路先brew在系统上安装，在到虚拟机上conda安装&#x2F;&#x2F;运行python labelImg.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>给指定的图片打标签，<a href="https://www.bilibili.com/video/BV1rT411f7Up/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=0fdb73bbf2537dde6273cee128865f85">参考教程</a></p></li></ul><h2 id="训练模型并测试"><a href="#训练模型并测试" class="headerlink" title="训练模型并测试"></a>训练模型并测试</h2><ul><li>制定自己的训练数据data配置文件，以及模型model配置文件</li><li>按需求修改train中的参数，训练自己的数据，并得到权重文件</li><li>最后调用自己训练得到的权重文件对其他数据进行标识测试</li></ul><h2 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h2><p>报错直接搜索即可得到解决方案</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> YOLO </tag>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> LabelImg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IDEA安装依赖后依然报错</title>
       <link href="/2023/07/12/idea-an-zhuang-yi-lai-hou-yi-ran-bao-cuo/"/>
       <url>/2023/07/12/idea-an-zhuang-yi-lai-hou-yi-ran-bao-cuo/</url>
